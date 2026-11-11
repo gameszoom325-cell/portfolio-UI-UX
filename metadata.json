@@ -1,0 +1,6 @@
+{
+  "name": "Atelier Vance — Luxury Creative & Industrial Design Portfolio",
+  "description": "A handcrafted, cinematic digital showroom and luxury archive for Atelier Vance, featuring spatial architecture, industrial horology, moving image direction, and verified credentials.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,166 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #050505;
+    color: #F5F5F5;
+    font-family: var(--font-sans);
+    letter-spacing: 0.01em;
+  }
+}
+
+@keyframes slowLightSweep {
+  0% {
+    transform: translate3d(-35%, -20%, 0) rotate(-18deg);
+    opacity: 0.25;
+  }
+  50% {
+    transform: translate3d(25%, 10%, 0) rotate(-12deg);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(-35%, -20%, 0) rotate(-18deg);
+    opacity: 0.25;
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translate3d(0, 0px, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@keyframes marqueeRibbon {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-light-sweep {
+  animation: slowLightSweep 18s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-subtle-float {
+  animation: subtleFloat 7s ease-in-out infinite;
+}
+
+.animate-subtle-float:hover,
+.animate-subtle-float:focus-within {
+  animation-play-state: paused;
+}
+
+.animate-marquee {
+  animation: marqueeRibbon 38s linear infinite;
+}
+
+@keyframes splitWordReveal {
+  0% {
+    transform: translate3d(0, 108%, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0%, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeDepthUp {
+  0% {
+    transform: translate3d(0, 22px, 0) scale(0.985);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes clipApertureReveal {
+  0% {
+    clip-path: inset(10% 6% 10% 6% round 16px);
+    opacity: 0.35;
+    transform: translate3d(0, 10px, 0);
+  }
+  100% {
+    clip-path: inset(0% 0% 0% 0% round 16px);
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes paragraphSlideIn {
+  0% {
+    transform: translate3d(0, 18px, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+  }
+}
+
+.animate-split-word {
+  animation: splitWordReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-depth {
+  animation: fadeDepthUp 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-clip-aperture {
+  animation: clipApertureReveal 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+p,
+.animate-paragraph-entrance {
+  animation: paragraphSlideIn 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: var(--p-stagger-delay, 120ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  p,
+  .animate-light-sweep,
+  .animate-subtle-float,
+  .animate-marquee,
+  .animate-split-word,
+  .animate-fade-depth,
+  .animate-clip-aperture,
+  .animate-paragraph-entrance {
+    animation: none !important;
+  }
+}
+
+/* Custom subtle dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222225;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C1121F;
+}
